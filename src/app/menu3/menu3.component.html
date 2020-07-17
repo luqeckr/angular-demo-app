@@ -1,0 +1,40 @@
+<div class="grid">
+    <div class="box">
+        <form (ngSubmit)="onSubmit()" [formGroup]="myForm">
+            <label for="nama">Nama</label>
+            <input type="text" id="nama" name="nama" formControlName="nama">
+    
+            <div formGroupName="alamat">
+                <h3>Alamat</h3>
+                <label for="jalan">Jalan</label>
+                <input type="text" id="jalan" name="jalan" formControlName="jalan">
+        
+                <label for="kota">Kota</label>
+                <input type="text" id="kota" name="kota" formControlName="jalan">
+                
+                <label for="propinsi">Propinsi</label>
+                <input type="text" id="propinsi" name="propinsi" formControlName="jalan">
+            </div>
+    
+            <div formArrayName="hobis">
+                <h3>Hobi</h3>
+                <div *ngFor="let item of hobis.controls; let i=index">
+                    <input type="text" [formControlName]="i">
+                </div>
+                <input type="button" (click)="addHobis()" value="tambah hobi">
+            </div>
+            <p></p>
+            <input type="submit">
+        </form>
+    </div>
+    <div class="box">
+        <h5>Values:</h5>
+        <pre>
+{{ myForm.value | json }}
+        </pre>
+        <h5>Status</h5>
+        <pre>
+{{ myForm.status }}
+        </pre>
+    </div>
+</div>
