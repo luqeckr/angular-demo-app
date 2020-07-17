@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Articles } from './articles.interface';
 
 @Component({
   selector: 'app-menu1',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class Menu1Component implements OnInit {
 
-  constructor() { }
+  articles: Articles[]
+  constructor(
+    private _http: HttpClient
+  ) { }
 
   ngOnInit(): void {
+    this._http.get<Articles[]>('https://jsonplaceholder.typicode.com/posts')
+      .subscribe((res) => {
+        this.articles = res
+      })
   }
 
 }

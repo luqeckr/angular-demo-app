@@ -1,0 +1,12 @@
+<h2>List Album</h2>
+
+<ol>
+    <li (click)="getPhotos(item.id)" [ngClass]="{selected: item.id == selected}"
+        *ngFor="let item of albums">{{ item.title }}</li>
+</ol>
+
+
+<div class="box" *ngFor="let item of photos">
+    <img [src]="item.thumbnailUrl" [alt]="item.title" loading="lazy">
+    <div class="title">{{ item.title }}</div>
+</div>
