@@ -16,7 +16,7 @@ import { BerandaComponent } from './beranda/beranda.component';
     BerandaComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     HttpClientModule,
     AppRoutingModule
   ],
