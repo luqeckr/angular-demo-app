@@ -10,7 +10,7 @@
                 <input type="text" id="jalan" name="jalan" formControlName="jalan">
         
                 <label for="kota">Kota</label>
-                <input type="text" id="kota" name="kota" formControlName="jalan">
+                <input type="text" id="kota" name="kota" formControlName="kota">
                 
                 <label for="propinsi">Propinsi</label>
                 <input type="text" id="propinsi" name="propinsi" formControlName="jalan">
@@ -28,13 +28,13 @@
         </form>
     </div>
     <div class="box">
-        <h5>Values:</h5>
-        <pre>
+<strong>Values:</strong>
+<pre>
 {{ myForm.value | json }}
-        </pre>
-        <h5>Status</h5>
-        <pre>
-{{ myForm.status }}
-        </pre>
+</pre>
+<strong>Status *: </strong>{{ myForm.status }}<br>
+<strong>Nama: </strong>{{ nama.status }}<br>
+<strong>Kota: </strong>{{ kota.status }}<br>
+
     </div>
 </div>

@@ -13,10 +13,10 @@ export class Menu3Component implements OnInit {
     private _fb: FormBuilder
   ) {
     this.myForm = this._fb.group({
-      nama: ['', Validators.required],
+      nama: ['', [Validators.required, Validators.minLength(3)]],
       alamat: this._fb.group({
         jalan: [''],
-        kota: [''],
+        kota: ['', Validators.required],
         propinsi: ['']
       }),
       hobis: this._fb.array([
@@ -33,11 +33,19 @@ export class Menu3Component implements OnInit {
     return this.myForm.get('hobis') as FormArray
   }
 
+  get nama() {
+    return this.myForm.get('nama')
+  }
+
+  get kota() {
+    return this.myForm.controls.alamat.get('kota')
+  }
+
   addHobis() {
     this.hobis.push(this._fb.control(''))
   }
 
   onSubmit() {
-    console.log(this.myForm.value)
+    console.log(this.myForm)
   }
 }
